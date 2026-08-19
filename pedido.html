@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RestoApp - Tomar pedido</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="contenedor-principal">
+    <div class="ticket-header">
+      <span class="eyebrow">RestoApp · Mesero</span>
+      <h2>Tomar pedido</h2>
+    </div>
+
+    <nav class="tabs">
+      <a href="index.html">Inicio</a>
+      <a href="pedido.html" class="activa">Pedido</a>
+      <a href="admin.html">Productos</a>
+      <a href="ordenes.html">Pedidos</a>
+    </nav>
+
+    <div id="form">
+      <div id="avisoMenu" class="mensaje"></div>
+
+      <div class="item">
+        <span class="etiqueta">Mesa / Cliente</span>
+        <input type="text" id="mesa" placeholder="Ej: Mesa 4 / Juan Pérez">
+      </div>
+
+      <div class="item">
+        <span class="etiqueta">Plato</span>
+        <select id="plato">
+          <option value="">--Cargando menú--</option>
+        </select>
+      </div>
+      <div class="item">
+        <span class="etiqueta">Cantidad</span>
+        <input type="number" id="cantidad" min="1" value="1">
+      </div>
+      <div class="item">
+        <span class="etiqueta">Precio unitario</span>
+        <input type="number" id="precio" min="0" step="0.01">
+      </div>
+      <button id="btnAgregar" class="secundario" style="width:100%">+ Agregar al pedido</button>
+    </div>
+
+    <div class="panel carrito">
+      <span class="etiqueta">Pedido actual</span>
+      <div id="listaCarrito"></div>
+      <div id="totalesCarrito"></div>
+      <button id="btnConfirmar" style="width:100%; margin-top:10px;" disabled>Confirmar pedido</button>
+    </div>
+
+    <div id="res" class="resultado"></div>
+  </div>
+
+  <script type="module" src="pedidoPage.js"></script>
+</body>
+</html>

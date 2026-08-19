@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RestoApp - Acceso administrador</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="contenedor-principal">
+    <div class="ticket-header">
+      <span class="eyebrow">RestoApp · Admin</span>
+      <h2>Acceso al sistema</h2>
+    </div>
+
+    <nav class="tabs">
+      <a href="index.html">Inicio</a>
+      <a href="pedido.html">Pedido</a>
+      <a href="login.html" class="activa">Admin</a>
+    </nav>
+
+    <div class="panel">
+      <div class="item">
+        <span class="etiqueta">Usuario</span>
+        <input type="text" id="usuario" autocomplete="username">
+      </div>
+      <div class="item">
+        <span class="etiqueta">Contraseña</span>
+        <input type="password" id="contrasena" autocomplete="current-password">
+      </div>
+      <button id="btnLogin">Ingresar</button>
+      <div id="authMsg" class="mensaje"></div>
+    </div>
+  </div>
+
+  <script type="module" src="loginPage.js"></script>
+</body>
+</html>

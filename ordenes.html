@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RestoApp - Pedidos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="contenedor-principal">
+    <div class="ticket-header">
+      <span class="eyebrow">RestoApp · Admin</span>
+      <h2>Pedidos recibidos</h2>
+    </div>
+
+    <nav class="tabs">
+      <a href="index.html">Inicio</a>
+      <a href="pedido.html">Pedido</a>
+      <a href="admin.html">Productos</a>
+      <a href="ordenes.html" class="activa">Pedidos</a>
+    </nav>
+
+    <div class="panel">
+      <button id="btnRefrescar" class="secundario" style="width:100%; margin-bottom:10px;">↻ Refrescar</button>
+      <div id="listaPedidos" class="lista-admin"></div>
+    </div>
+
+    <div class="pie">
+      <span>Sesión de administrador activa</span>
+      <button id="btnLogout" class="secundario">Cerrar sesión</button>
+    </div>
+  </div>
+
+  <script type="module" src="ordenesPage.js"></script>
+</body>
+</html>

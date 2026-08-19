@@ -1,0 +1,330 @@
+/* css/styles.css
+   Estilo único para toda la MPA (Ejercicio 1).
+   Se eliminó .clase_redundante_que_no_se_usa (código muerto) y los estilos
+   inline que estaban regados por el HTML original.
+
+   Identidad visual: "comanda de cocina" — papel de ticket, tipografía
+   monoespaciada para números/precios (como una impresora de recibos),
+   acento oliva/mostaza en vez del típico terracota.
+*/
+
+:root {
+  --papel: #f7f5ef;
+  --papel-oscuro: #efece2;
+  --tinta: #2b2924;
+  --tinta-suave: #6b6558;
+  --acento: #6b7a3f;
+  --acento-oscuro: #4f5c2c;
+  --alerta: #a4402f;
+  --borde: #d8d3c3;
+  --fuente-cuerpo: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --fuente-mono: "Courier New", ui-monospace, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fuente-cuerpo);
+  background: var(--papel-oscuro);
+  color: var(--tinta);
+  margin: 0;
+  padding: 40px 16px;
+  line-height: 1.5;
+}
+
+.contenedor-principal {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  background: var(--papel);
+  border: 1px solid var(--borde);
+  box-shadow: 0 2px 0 var(--borde);
+}
+
+.ticket-header {
+  padding: 20px 24px 16px;
+  border-bottom: 1px dashed var(--borde);
+}
+
+.ticket-header h1,
+.ticket-header h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+
+.ticket-header .eyebrow {
+  display: block;
+  font-family: var(--fuente-mono);
+  font-size: 0.72rem;
+  color: var(--acento-oscuro);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 4px;
+}
+
+nav.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px dashed var(--borde);
+}
+
+nav.tabs a {
+  flex: 1;
+  text-align: center;
+  padding: 10px 8px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  color: var(--tinta-suave);
+  font-family: var(--fuente-mono);
+}
+
+nav.tabs a.activa {
+  color: var(--tinta);
+  border-bottom: 2px solid var(--acento);
+  font-weight: bold;
+}
+
+#form,
+.panel {
+  padding: 20px 24px;
+}
+
+.item {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item label,
+.item .etiqueta {
+  font-size: 0.78rem;
+  color: var(--tinta-suave);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+input,
+select {
+  font-family: var(--fuente-mono);
+  font-size: 0.95rem;
+  padding: 9px 10px;
+  border: 1px solid var(--borde);
+  background: #fff;
+  color: var(--tinta);
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid var(--acento);
+  outline-offset: 1px;
+}
+
+button {
+  font-family: var(--fuente-cuerpo);
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: none;
+  padding: 11px 16px;
+  cursor: pointer;
+  background: var(--acento);
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+button:hover {
+  background: var(--acento-oscuro);
+}
+
+button.secundario {
+  background: transparent;
+  color: var(--tinta-suave);
+  border: 1px solid var(--borde);
+}
+
+button.secundario:hover {
+  background: var(--papel-oscuro);
+  color: var(--tinta);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#res,
+.resultado {
+  margin: 0 24px 20px;
+  padding: 14px 16px;
+  background: var(--papel-oscuro);
+  border: 1px dashed var(--borde);
+  font-family: var(--fuente-mono);
+  font-size: 0.88rem;
+  white-space: pre-line;
+}
+
+.resultado:empty {
+  display: none;
+}
+
+.mensaje {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  font-family: var(--fuente-mono);
+}
+
+.mensaje.error {
+  color: var(--alerta);
+}
+
+.mensaje.exito {
+  color: var(--acento-oscuro);
+}
+
+.pie {
+  padding: 14px 24px;
+  border-top: 1px dashed var(--borde);
+  font-size: 0.75rem;
+  color: var(--tinta-suave);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pie a {
+  color: var(--tinta-suave);
+}
+
+/* --- Carrito de pedido --- */
+.carrito {
+  border-top: 1px dashed var(--borde);
+}
+
+.fila-carrito {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 6px 0;
+  font-family: var(--fuente-mono);
+  font-size: 0.85rem;
+  border-bottom: 1px dotted var(--borde);
+}
+
+.fila-carrito .quitar {
+  background: transparent;
+  color: var(--alerta);
+  border: none;
+  padding: 0 4px;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.fila-carrito .quitar:hover {
+  background: transparent;
+  text-decoration: underline;
+}
+
+.vacio {
+  color: var(--tinta-suave);
+  font-size: 0.85rem;
+  font-style: italic;
+  margin: 8px 0;
+}
+
+.fila-total {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--fuente-mono);
+  font-size: 0.85rem;
+  padding: 3px 0;
+  color: var(--tinta-suave);
+}
+
+.fila-total-final {
+  color: var(--tinta);
+  font-weight: bold;
+  border-top: 1px dashed var(--borde);
+  margin-top: 4px;
+  padding-top: 6px;
+  font-size: 0.95rem;
+}
+
+/* --- Listas de administración (menú y pedidos) --- */
+.lista-admin {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.fila-admin {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 10px;
+  background: var(--papel-oscuro);
+  border: 1px solid var(--borde);
+  font-size: 0.85rem;
+}
+
+.fila-admin input[type="number"] {
+  width: 90px;
+  padding: 5px 6px;
+}
+
+.fila-admin .btn-mini {
+  padding: 6px 10px;
+  font-size: 0.78rem;
+}
+
+.fila-admin .btn-mini.eliminar {
+  background: var(--alerta);
+}
+
+.fila-admin .btn-mini.eliminar:hover {
+  background: #7e2f22;
+}
+
+.tarjeta-pedido {
+  padding: 12px 14px;
+  background: var(--papel-oscuro);
+  border: 1px solid var(--borde);
+  font-size: 0.85rem;
+}
+
+.tarjeta-pedido header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--fuente-mono);
+  margin-bottom: 6px;
+}
+
+.tarjeta-pedido ul {
+  margin: 0 0 8px;
+  padding-left: 18px;
+}
+
+.badge {
+  font-family: var(--fuente-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border: 1px solid var(--borde);
+}
+
+.badge.pendiente {
+  color: var(--alerta);
+  border-color: var(--alerta);
+}
+
+.badge.entregado {
+  color: var(--acento-oscuro);
+  border-color: var(--acento);
+}
